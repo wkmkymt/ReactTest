@@ -1,32 +1,31 @@
 const path    = require("path");
+const webpack = require("webpack");
 
 const srcPath  = path.join(__dirname, "/src");
 const distPath = path.join(__dirname, "/dist");
 
 module.exports = {
   context: srcPath,
-  entry: {
-    jsx:  "./app.jsx"
-  },
+  entry: [
+    "./index.jsx"
+  ],
 
   output: {
     path: distPath,
-    filename: "./js/app.js"
+    filename: "./js/bundle.js"
   },
 
-  devtool: "source-map",
+  devtool: "inline-source-map",
   module: {
     rules: [
       {
         test: /\.jsx$/,
         exclude: /node_modules/,
-        use: { loader: "babel-loader" }
+        use: [
+          "babel-loader"
+        ]
       }
     ]
-  },
-
-  resolve: {
-    extensions: [".js", ".jsx"]
   },
 
   devServer: {
@@ -35,5 +34,10 @@ module.exports = {
     publicPath: "/",
     historyApiFallback: true,
     open: true
+  },
+
+  resolve: {
+    extensions: [".js", ".jsx"]
   }
+
 };
