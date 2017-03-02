@@ -19,10 +19,7 @@ yarn
 
 ## Scripts
 
-### `yarn run build`
-
-### `yarn run watch`
-
-### `yarn run start`
-
-### `yarn run clean`
++ `yarn run build`
++ `yarn run watch`
++ `yarn run start`
++ `yarn run clean`
