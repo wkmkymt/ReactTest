@@ -15,7 +15,7 @@
 ## Setup
 
 ~~~sh
-$  git clone https://github.com/wkmkymt/ReactTest.git
+$ git clone https://github.com/wkmkymt/ReactTest.git
 $ cd ReactTest
 $ yarn
 ~~~
