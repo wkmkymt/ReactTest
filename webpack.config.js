@@ -1,39 +1,41 @@
-const path    = require("path");
-const webpack = require("webpack");
+const path = require("path");
 
-const srcPath  = path.join(__dirname, "/src");
-const distPath = path.join(__dirname, "/dist");
+const pathes = {
+  src:  path.resolve(__dirname, "src"),
+  dist: path.resolve(__dirname, "dist")
+}
 
 module.exports = {
-  context: srcPath,
+  mode: "development",
+  devtool: "inline-source-map",
+
+  context: pathes.src,
   entry: [
     "./index.jsx"
   ],
 
   output: {
-    path: distPath,
+    path: pathes.dist,
     filename: "./js/bundle.js"
   },
 
-  devtool: "inline-source-map",
   module: {
     rules: [
       {
         test: /\.jsx$/,
         exclude: /node_modules/,
-        use: [
-          "babel-loader"
-        ]
+        use: {
+          loader: "babel-loader"
+        }
       }
     ]
   },
 
   devServer: {
-    contentBase: distPath,
-    port: 3000,
+    contentBase: pathes.dist,
     publicPath: "/",
-    historyApiFallback: true,
-    open: true
+    open: true,
+    port: 3000,
   },
 
   resolve: {
